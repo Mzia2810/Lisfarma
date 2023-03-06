@@ -5,6 +5,11 @@ import HomePage from "../screens/HomePage";
 import BottomTabScreen from "./BottomTab";
 import DoctorProfile from "../screens/DoctorProfile";
 import PersonalInformation from '../screens/PersonalInformation';
+import Document from '../screens/Document';
+import DeltailPatient from '../screens/DeltailPatient';
+import RegisterPatient from '../screens/RegisterPatient';
+import Historical from "../screens/Historical";
+import Experience from '../screens/Experience';
 
 
 const Stack = createStackNavigator();
@@ -32,6 +37,48 @@ const MainStack = ({ navigation }) => {
           headerShown: false,
         }}
         component={PersonalInformation}
+      />
+      <Stack.Screen
+        name="Document"
+        options={{
+          headerShown: false,
+        }}
+        component={Document}
+      />
+      <Stack.Screen
+        name="DeltailPatient"
+        options={{
+          headerShown: false,
+        }}
+        component={DeltailPatient}
+      />
+      <Stack.Screen
+        name="RegisterPatient"
+        options={{
+          headerShown: false,
+        }}
+        component={RegisterPatient}
+      />
+      <Stack.Screen
+        name="Historical"
+        options={{
+          headerShown: false,
+        }}
+        component={Historical}
+      />
+      <Stack.Screen
+        name="Experience"
+        options={{
+          headerShown: false,
+        }}
+        component={Experience}
+      />
+      <Stack.Screen
+        name="HomePage"
+        options={{
+          headerShown: false,
+        }}
+        component={HomePage}
       />
     </Stack.Navigator>
   );

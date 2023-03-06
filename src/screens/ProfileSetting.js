@@ -52,7 +52,7 @@ const ProfileSetting = () => {
     <>
       <View style={styles.topHeading}>
         <BackButton />
-        <View style={{marginVertical: hp('2%')}}>
+        <View >
           <LHeading text={'Solicitar permiso De importación'} />
         </View>
       </View>
@@ -76,14 +76,20 @@ const ProfileSetting = () => {
           width: wp('80%'),
           alignSelf: 'center',
           justifyContent: 'center',
+          marginTop:10,
         }}>
+      
+
         <LHeading text={'Historial Permiso de Importación'} />
+         
+<View Style={{width:wp('80%'),alignSelf:'center'}}>
 
         <ButtonCompo text={'Solicitar Permiso de Importación'} />
+</View>
       </View>
       <View style={styles.dropdown}>
         <View style={[styles.dropdownChild, {marginBottom: hp('1%')}]}>
-          <TouchableOpacity style={styles.TouchableOpacityButton}>
+          <View style={styles.TouchableOpacityButton}>
             <View style={styles.ImageParent}>
               <Image
                 style={styles.img}
@@ -91,12 +97,15 @@ const ProfileSetting = () => {
               />
               <Text style={{marginHorizontal: wp('2%')}}>Sara Castañeda</Text>
             </View>
+            <TouchableOpacity>
+
             <EvilIcons
               name="chevron-down"
               style={{marginRight: wp('1.5%')}}
               size={25}
-            />
-          </TouchableOpacity>
+              />
+              </TouchableOpacity>
+          </View>
           <IconCompo name={'git-pull-request'} color={'white'} size={20} />
         </View>
         <ScrollView>
@@ -122,10 +131,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
-    width: wp('70%'),
+    width: wp('75%'),
+    marginLeft:-15,
   },
-  dropdownChild: {flexDirection: 'row', justifyContent: 'space-evenly'},
-  dropdown: {width: wp('90%'), alignSelf: 'center', justifyContent: 'center'},
+  dropdownChild: {flexDirection: 'row', justifyContent: 'space-evenly',width:wp('95%')},
+  dropdown: {width: wp('90%'), alignSelf: 'center', justifyContent: 'center',marginTop:10},
   topHeading: {
     marginTop: hp('2%'),
     width: wp('90%'),

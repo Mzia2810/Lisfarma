@@ -19,6 +19,8 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Colors from '../assets/theme/Colors';
 import FlatListCompo from '../components/FlatListCompo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fonts from '../assets/theme/Fonts';
+import Divider from './Divider';
 
 const ProfileContent = ({icon, text,onPress}) => {
   return (
@@ -34,10 +36,9 @@ const ProfileContent = ({icon, text,onPress}) => {
           </View>
         </View>
       </TouchableOpacity>
-      {text == 'Chat' ? (
+      {text == 'Soporte' ? (
        null
-      ) :  <View
-      style={styles.divider}></View>}
+      ) :  <Divider/>}
     </>
   );
 };
@@ -47,14 +48,17 @@ export default ProfileContent;
 const styles = StyleSheet.create({
     divider:{
         alignSelf: 'center',
-        width: wp('80%'),
+        width: wp('90%'),
         height: hp('0.1%'),
         backgroundColor: '#CED9F1',
       },
   text: {
     fontSize: 16,
     fontWeight: '500',
+    fontFamily:Fonts.medium_500,
     marginHorizontal: wp('2%'),
+    lineHeight:21,
+    // fontFamily:'Montserrat-Regular'
   },
   information: {
     flexDirection: 'row',
@@ -62,18 +66,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemsList: {
-    width: wp('80%'),
+    width: wp('90%'),
     alignSelf: 'center',
     justifyContent: 'space-between',
     alignContent: 'center',
     flexDirection: 'row',
   },
   list: {
-    width: wp('80%'),
-    marginVertical: hp('0.5%'),
+    width: wp('90%'),
+    marginVertical: hp('0.8%'),
     justifyContent: 'center',
     alignSelf: 'center',
-    paddingVertical: hp('0.7%'),
+    paddingVertical: hp('1%'),
     // borderBottomWidth: 0.5,
   },
 });

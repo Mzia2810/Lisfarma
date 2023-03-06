@@ -52,7 +52,7 @@ const HomePage = () => {
         <View style={styles.searchBoxChild}>
           <TouchableOpacity
             style={{position: 'absolute', alignSelf: 'flex-end'}}>
-            <EvilIcons name={'search'} color={Colors.textColor} size={35} />
+            <EvilIcons name={'search'} color={Colors.textColor} size={40} />
           </TouchableOpacity>
           <MyTextInput
             placeholder={'Buscar...'}
@@ -60,7 +60,7 @@ const HomePage = () => {
             onChangeText={() => setText(text)}
           />
         </View>
-        <IconCompo name={'git-pull-request'} color={'white'} size={20} />
+        {/* <IconCompo name={'git-pull-request'} color={'white'} size={20} /> */}
       </View>
 
       <ScrollView>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   searchBoxChild: {
-    width: wp('75%'),
+    width: wp('90%'),
     marginVertical: hp('2%'),
     marginRight: 10,
     justifyContent: 'center',

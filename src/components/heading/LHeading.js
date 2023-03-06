@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import Fonts from '../../assets/theme/Fonts';
 
 const LHeading = ({text}) => {
   return (
@@ -13,10 +14,14 @@ export default LHeading;
 
 const styles = StyleSheet.create({
   heading: {
-    fontSize: 25,
+    // height:100,
+    paddingVertical:10,
+     fontSize: 25,
+     lineHeight:31,
+     fontFamily:Fonts.bold_600,
     fontWeight: '600',
-    fontFamily: 'Montserrat',
-    lineHeight: 31,
+    // fontFamily: 'Montserrat-Bold',
+    lineHeight: 21,
     color:'#000000'
   },
 });

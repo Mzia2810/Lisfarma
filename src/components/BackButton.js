@@ -7,6 +7,7 @@ import {
 import Colors from '../assets/theme/Colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Button } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 // import { useNavigation } from '@react-navigation/native';
 
 const BackButton = ({navigation}) => {
@@ -14,15 +15,23 @@ const BackButton = ({navigation}) => {
   return (
     <TouchableOpacity
     onPress={()=> navigation.goBack()}
-      style={{
-        width: wp('10%'),
-        height: hp('5%'),
-        backgroundColor: Colors.lightBlueSky,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius:5,
-      }}>
-      <AntDesign name={'left'} size={25} />
+      >
+        <LinearGradient
+        style={{
+          marginTop:3,
+          width: wp('8%'),
+          height: hp('4%'),
+          backgroundColor: Colors.lightBlueSky,
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius:5,
+        }}
+         start={{ x: 0.3, y: 0.5 }} end={{ x: -1, y: 0 }}
+         colors={['#D9DFF5', '#F2F6FF']}
+         >
+
+      <AntDesign name={'left'} size={13} color={'black'} />
+        </LinearGradient>
     </TouchableOpacity>
   );
 };
