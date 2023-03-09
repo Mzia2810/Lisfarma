@@ -7,6 +7,7 @@ import SettingScreen from '../screens/SettingScreen';
 import Icon from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ProfileSetting from '../screens/ProfileSetting';
+import Colors from '../assets/theme/Colors';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -32,8 +33,10 @@ const BottomTabScreen = () => {
         tabBarInactiveTintColor:'white',
        
         tabBarStyle:{
+          backgroundColor:Colors.white,
           borderTopStartRadius:30,
           borderTopEndRadius:30,
+          
         }
     
       }}

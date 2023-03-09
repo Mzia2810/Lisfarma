@@ -78,12 +78,12 @@ const DetailPatient = ({navigation}) => {
   console.log(image);
 
   return (
-    <>
+    <View style={{backgroundColor:Colors.white,flex:1}}>
       <ScrollView>
         <View style={styles.topHeader}>
           <BackButton navigation={navigation} />
           <View style={{marginRight: 5}}>
-            <LHeading text={'Detalled del Paciente'} />
+            <LHeading text={'Detalles del paciente'} />
           </View>
         </View>
         <View style={[styles.ParentProfile]}>
@@ -167,7 +167,7 @@ const DetailPatient = ({navigation}) => {
             <View style={styles.divider}></View>
             <View style={styles.listChild}>
               <Text style={styles.textBottom}>Correo electrónico</Text>
-              <Text style={styles.secText}>mj@gmail.com</Text>
+              <Text style={[styles.secText,{color:'#002060'}]}>mj@gmail.com</Text>
             </View>
           </View>
         </View>
@@ -188,7 +188,7 @@ const DetailPatient = ({navigation}) => {
           />
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 

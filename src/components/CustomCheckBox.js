@@ -5,18 +5,30 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Fonts from '../assets/theme/Fonts';
+import Colors from '../assets/theme/Colors';
 
-const CustomCheckBox = ({toggleCheckBox, setToggleCheckBox, CheckBoxText}) => {
+const CustomCheckBox = ({
+  toggleCheckBox,
+  setToggleCheckBox,
+  CheckBoxText,
+  color,
+}) => {
   return (
     <View style={styles.CheckBoxArea}>
       <CheckBox
-      
-      // tintColors={ true? '#DFDFF5' : 'green' }
+        tintColors={{true: Colors.lightBlueSky, false: 'gray'}}
         disabled={false}
         value={toggleCheckBox}
         onValueChange={newValue => setToggleCheckBox(newValue)}
       />
-      <Text style={styles.CheckBoxText}>{CheckBoxText}</Text>
+      {color ? (
+        <Text style={[styles.CheckBoxText, {color: '#04122B'}]}>
+          {CheckBoxText}
+        </Text>
+      ) : (
+        <Text style={[styles.CheckBoxText]}>{CheckBoxText}</Text>
+      )}
     </View>
   );
 };
@@ -27,7 +39,7 @@ const styles = StyleSheet.create({
   CheckBoxText: {
     fontSize: 18,
     fontWeight: '500',
-    fontFamily:'Montserrat-Regular',
+    fontFamily: Fonts.regular,
     lineHeight: 23,
     marginHorizontal: wp('2%'),
   },
@@ -36,6 +48,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     width: wp('70%'),
-    marginVertical:hp('1%')
+    marginVertical: hp('1%'),
   },
 });

@@ -93,7 +93,7 @@ const PersonalInformation = ({navigation}) => {
   console.log(image);
 
   return (
-    <>
+    <View style={{backgroundColor:Colors.white,flex:1}}>
       <ScrollView>
         <View style={styles.topHeader}>
           <View >
@@ -283,8 +283,13 @@ const PersonalInformation = ({navigation}) => {
             setToggleCheckBox={setToggleCheckBox}
           />
           <CustomCheckBox
-            toggleCheckBox={toggleCheckBox1}
+            toggleCheckBox={toggleCheckBox}
             CheckBoxText={'Importar medicamentos para protocolos clínicos'}
+            setToggleCheckBox={setToggleCheckBox}
+          />
+          <CustomCheckBox
+            toggleCheckBox={toggleCheckBox1}
+            CheckBoxText={'Expediente médico'}
             setToggleCheckBox={setToggleCheckBox1}
           />
           <CustomCheckBox
@@ -313,7 +318,7 @@ const PersonalInformation = ({navigation}) => {
           <ButtonCompo text={'Guardar'} />
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 

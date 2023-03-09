@@ -10,6 +10,7 @@ import DeltailPatient from '../screens/DeltailPatient';
 import RegisterPatient from '../screens/RegisterPatient';
 import Historical from "../screens/Historical";
 import Experience from '../screens/Experience';
+import Login from "../screens/Login";
 
 
 const Stack = createStackNavigator();
@@ -79,6 +80,13 @@ const MainStack = ({ navigation }) => {
           headerShown: false,
         }}
         component={HomePage}
+      />
+      <Stack.Screen
+        name="Login"
+        options={{
+          headerShown: false,
+        }}
+        component={Login}
       />
     </Stack.Navigator>
   );

@@ -17,14 +17,18 @@ import HeaderCompo from '../components/HeaderCompo';
 import MyTextInput from '../components/MyTextInput';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import IconCompo from '../components/heading/IconCompo';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../assets/theme/Colors';
 import ButtonCompo from '../components/ButtonCompo';
 import CustomView from '../components/CustomView';
-import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 // import CustomTextinput from '../components/CustomTextInput';
 import LHeading from '../components/heading/LHeading';
 import Fonts from '../assets/theme/Fonts';
+import LinearGradient from 'react-native-linear-gradient';
+import DropDownPicker from 'react-native-dropdown-picker';
+import { useNavigation } from '@react-navigation/native';
+import BackButton from '../components/BackButton';
 
 const CustomTextinput = ({
   text,
@@ -35,7 +39,11 @@ const CustomTextinput = ({
   keyboardType,
 }) => {
   return (
-    <View style={styles.button}>
+    <LinearGradient
+      start={{x: 0.3, y: 0.3}}
+      end={{x: -1, y: 0}}
+      colors={['#D9DFF5', '#F2F6FF']}
+      style={styles.buttonInputText}>
       <TextInput
         keyboardType={keyboardType}
         placeholder={placeholder}
@@ -50,29 +58,77 @@ const CustomTextinput = ({
           width: wp('80%'),
           alignContent: 'center',
           color: Colors.blackHeading,
-          height: hp('6%'),
+          height: hp('7%'),
+          // paddingVertical:17,   borderWidth:1,
+           
         }}></TextInput>
       <View style={{alignSelf: 'center'}}>{icon}</View>
-    </View>
+    </LinearGradient>
   );
 };
 
 const Experience = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
+  // form
   const [value3, setValue3] = useState('');
   const [value4, setValue4] = useState('');
   const [value5, setValue5] = useState('');
   const [value6, setValue6] = useState('');
+
+  // dropdown
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    {label: 'Apple', value: 'apple'},
+    {label: 'Banana', value: 'banana'},
+    {label: 'Orange', value: 'Kino'},
+    {label: 'Strawberry', value: 'Strawberry'},
+  ]);
+
+  const navigation = useNavigation()
+
   return (
-    <>
+    <View style={{backgroundColor:Colors.white,flex:1}}>
       <View style={styles.topHeadingParent}>
+        <View style={{marginRight:10,}}>
+          <BackButton navigation={navigation} />
+        </View>
+
         <LHeading text={'Solicitar permiso De importación'} />
       </View>
 
       <View style={styles.personalDetailList}>
         <LHeading text={'Institución Details'} />
         <View style={{marginTop: hp('0.5%'), width: wp('90%')}}>
+          <View style={{zIndex: 1, marginBottom: 5}}>
+            <DropDownPicker
+              style={{
+                borderWidth: 1,
+                borderColor: '#D9DFF5',
+                backgroundColor: Colors.white,
+              }}
+              mode="BADGE"
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
+              dropDownContainerStyle={{
+                // backgroundColor: "#D9DFF5",
+                borderWidth: 1,
+                borderColor: '#D9DFF5',
+              }}
+              placeholder={'Buscar medicamento'}
+              placeholderStyle={{
+                color: '#434040',
+                fontWeight: '400',
+                fontSize: 18,
+                lineHeight: 19.45,
+              }}
+            />
+          </View>
           <CustomTextinput
             placeholder="Descripción"
             keyboardType={'default'}
@@ -88,7 +144,7 @@ const Experience = () => {
             }
           />
         </View>
-        <View style={{marginTop: hp('0.5%'), width: wp('90%')}}>
+        <View style={{marginTop: hp('0.5%'), width: wp('90%'), zIndex: -1}}>
           <CustomTextinput
             placeholder="Sustanica Activa"
             keyboardType={'default'}
@@ -104,7 +160,7 @@ const Experience = () => {
             }
           />
         </View>
-        <View style={{marginTop: hp('0.5%'), width: wp('90%')}}>
+        <View style={{marginTop: hp('0.5%'), width: wp('90%'), zIndex: -1}}>
           <CustomTextinput
             placeholder="Cantidad"
             keyboardType={'default'}
@@ -141,8 +197,8 @@ const Experience = () => {
 
       <View style={styles.centeredView}>
         <Modal
-          // animationType="slide"
-          transparent={true}
+          animationType="slide"
+          transparent
           visible={modalVisible}
           onRequestClose={() => {
             // Alert.alert('Modal has been closed.');
@@ -150,78 +206,34 @@ const Experience = () => {
           }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <View style={{position: 'absolute'}}>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text
                   style={{
                     fontSize: 20,
                     fontWeight: '600',
                     fontFamily: Fonts.bold_600,
                     lineHeight: 31,
+                    color: Colors.blackHeading,
                   }}>
-                  Alianza Comercial
+                  Recibimos tu solicitud
                 </Text>
-
-                <Text>
-                  Lo contactaremos con nuestra red de aliados. Escriba su correo
-                  electrónico y teléfono. En breve se pondran en contacto con
-                  usted.
-                </Text>
-
-                <TextInput
-                  style={{
-                    borderWidth: 1,
-                    backgroundColor: '#D9DFF5',
-                    opacity: 0.5,
-                    borderRadius: 5,
-                    borderColor: '#D9DFF5',
-                    padding: 10,
-                    marginTop: 10,
-                  }}
-                  placeholder="Ejemplo@ejemplo.com"
-                  keyboardType={'default'}
-                  onChangeText={num => setValue4(num)}
-                  value={value4}
-                />
-                <TextInput
-                  style={{
-                    marginTop: 10,
-                    borderWidth: 1,
-                    backgroundColor: '#D9DFF5',
-                    opacity: 0.5,
-                    borderRadius: 5,
-                    borderColor: '#D9DFF5',
-                    padding: 10,
-                  }}
-                  placeholder="Teléfono"
-                  keyboardType={'default'}
-                  onChangeText={num => setValue4(num)}
-                  value={value4}
-                />
-              </View>
-
-              <View style={{width: wp('65%'), alignSelf: 'center',marginTop:hp('30%')}}>
-                <TouchableOpacity onPress={() =>setModalVisible(!modalVisible)} style={styles.buttonModal}>
-                  <Text
-                    style={{
-                      color: Colors.white,
-                      fontFamily: Fonts.medium_500,
-                      fontSize: 16,
-                    }}>
-                   Continuar
-                  </Text>
+                <TouchableOpacity
+                  onPress={() => setModalVisible(!modalVisible)}
+                  style={{marginLeft: 10, marginVertical: 5}}>
+                  <AntDesign name={'closecircleo'} size={25} />
                 </TouchableOpacity>
               </View>
-                <Text style={{borderBottomWidth:1}}>Cancelar</Text>
-              {/* <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable> */}
+              <Text>
+                Lo contactaremos con nuestra red de aliados. Escriba su correo
+                electrónico y teléfono. En breve se pondran en contacto con
+                usted.
+              </Text>
             </View>
           </View>
         </Modal>
       </View>
-    </>
+    </View>
   );
 };
 
@@ -229,7 +241,7 @@ export default Experience;
 
 const styles = StyleSheet.create({
   buttonModal: {
-    marginVertical:hp('2%'),
+    marginVertical: hp('2%'),
     width: wp('65%'),
     // marginHorizontal: wp('5%'),
     backgroundColor: Colors.red,
@@ -246,8 +258,8 @@ const styles = StyleSheet.create({
   },
   modalView: {
     // flex:1,
-    width: wp('80%'),
-    height: hp('50%'),
+    width: wp('85%'),
+    height: hp('20%'),
     margin: 10,
     backgroundColor: 'white',
     borderRadius: 20,
@@ -283,10 +295,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   topHeadingParent: {
-    width: wp('80%'),
+    width: wp('90%'),
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 10,
+    flexDirection:'row',
+    justifyContent:'space-between',
   },
   topHeading: {
     textAlign: 'left',
@@ -306,11 +320,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 22,
   },
-  button: {
+  buttonInputText: {
     width: wp('90%'),
+    borderColor:Colors.lightBlueSky,
+    borderWidth:1,
     // marginHorizontal: wp('5%'),
-    backgroundColor: 'rgba(217, 223, 245, 1)' + 0.7,
-    opacity: 0.5,
+    // backgroundColor: 'rgba(217, 223, 245, 1)' + 0.7,
+    // opacity: 0.5,
     flexDirection: 'row',
     borderRadius: 5,
     // padding: 3,

@@ -26,7 +26,7 @@ import Fonts from '../assets/theme/Fonts';
 
 const Document = ({navigation}) => {
   return (
-    <>
+    <View style={{backgroundColor:Colors.white,flex:1}}>
       <View style={styles.ParentProfile}>
         <View style={{marginTop: hp('4%')}}>
           <Image
@@ -68,11 +68,12 @@ const Document = ({navigation}) => {
           text={'Permiso de Importación'}
         />
         <ProfileContent
+         onPress={() => navigation.navigate('Login')}
           icon={<Image source={require('../assets/chat.png')} style={{width:wp('5%'),height:hp('2.5%')}} />}
           text={'Soporte'}
         />
       </View>
-    </>
+    </View>
   );
 };
 

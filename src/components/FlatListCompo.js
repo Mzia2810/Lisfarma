@@ -20,7 +20,7 @@ import Colors from '../assets/theme/Colors';
 import {useNavigation} from '@react-navigation/native';
 import Fonts from '../assets/theme/Fonts';
 
-const FlatListCompo = ({data}) => {
+const FlatListCompo = ({data, image, style}) => {
   const navigation = useNavigation();
   return (
     <View
@@ -28,6 +28,7 @@ const FlatListCompo = ({data}) => {
         width: wp('90%'),
         justifyContent: 'center',
         alignSelf: 'center',
+        
       }}>
       <FlatList
         data={data}
@@ -38,8 +39,34 @@ const FlatListCompo = ({data}) => {
             style={styles.listBtn}>
             <View style={styles.listChild}>
               <View style={styles.listImage}>
-                <Image source={require('../assets/Rectangle5938.png')}  />
-                <Text style={styles.listText}>Julie Matt</Text>
+                {image ? (
+                  <>
+                    <Image source={require('../assets/Rectangle5938.png')} />
+                    <Text style={[styles.listText]}>Julie Matt</Text>
+                  </>
+                ) : (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      width: wp('66%'),
+                      alignItems: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        // width: wp('66%'),
+                        fontSize: 18,
+                        fontWeight: '400',
+                        lineHeight: 21,
+                        fontFamily: Fonts.regular,
+                        color:Colors.blackHeading,
+                      }}>Permiso de importación
+                    </Text>
+                    <Text style={[styles.listText,]}>
+                      #378
+                    </Text>
+                  </View>
+                )}
               </View>
 
               <Image source={require('../assets/Vector.png')} />
@@ -47,11 +74,75 @@ const FlatListCompo = ({data}) => {
             <View style={styles.divider}></View>
 
             <View style={styles.homepagePatient}>
-              <Text style={styles.textBottom}>Diagnóstico</Text>
-            <Text style={styles.desc}>
-              Fusce eu facilisis dolor. Praesent convallis egestas tempus.
-              Curabitur nec blandit eros, eget rhoncus lacus.....
-            </Text>
+              {image ? (
+                <Text style={styles.textBottom}>Diagnóstico</Text>
+              ) : (
+                <>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      width: wp('80%'),
+                      alignItems: 'center',
+                    }}>
+                    <Text
+                      style={[
+                        styles.textBottom,
+                        {
+                          marginTop: 10,
+                          fontSize: 18,
+                          fontWeight: '600',
+                          lineHeight: 21,
+                          fontFamily: Fonts.bold_600,
+                        },
+                      ]}>
+                      Fecha
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 18,
+                        fontWeight: '400',
+                        lineHeight: 21,
+                        fontFamily: Fonts.regular,
+                        color:Colors.blackHeading,
+                      }}>
+                      Sept 01, 2021
+                    </Text>
+                  </View>
+
+                  <Text
+                    style={[
+                      styles.textBottom,
+                      {
+                        marginTop: 10,
+                        fontSize: 18,
+                        fontWeight: '600',
+                        lineHeight: 21,
+                        fontFamily: Fonts.bold_600,
+                      },
+                    ]}>
+                    Producto
+                  </Text>
+                </>
+              )}
+              {image ? (
+                <Text style={styles.desc}>
+                  Fusce eu facilisis dolor. Praesent convallis egestas tempus.
+                  Curabitur nec blandit eros, eget rhoncus lacus.....
+                </Text>
+              ) : (
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 18,
+                    fontWeight: '400',
+                    lineHeight: 21,
+                    color:Colors.blackHeading,
+                    fontFamily: Fonts.regular,
+                  }}>
+                  VIAL DE OPDDIVO 40MG/4ML
+                </Text>
+              )}
             </View>
           </TouchableOpacity>
         )}
@@ -65,9 +156,14 @@ const FlatListCompo = ({data}) => {
 export default FlatListCompo;
 
 const styles = StyleSheet.create({
-
-  homepagePatient:{width:wp('80%'),alignSelf:'center',justifyContent:'center',alignItems:'flex-start',paddingVertical:10}
-  ,FlatListText: {
+  homepagePatient: {
+    width: wp('80%'),
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingVertical: 10,
+  },
+  FlatListText: {
     fontSize: 14,
     fontWeight: '600',
     // fontFamily:Fonts.bold_600,
@@ -115,20 +211,23 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     lineHeight: 21,
-    fontFamily:Fonts.bold_600,
+    fontFamily: Fonts.bold_600,
     color: Colors.textColor,
   },
   textBottom: {
     fontSize: 16,
     fontWeight: '600',
-    fontFamily:Fonts.bold_600,
+    fontFamily: Fonts.bold_600,
     lineHeight: 19.5,
     color: Colors.blackHeading,
   },
-  
-  desc:{  fontSize: 16,
+
+  desc: {
+    fontSize: 16,
     fontWeight: '300',
-    fontFamily:Fonts.light_300,
+    fontFamily: Fonts.regular,
     lineHeight: 26.5,
-    color: Colors.blackHeading,}
+    // color: Colors.blackHeading,
+    // fontFamily:Fonts.light_300,
+  },
 });

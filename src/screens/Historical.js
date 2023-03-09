@@ -41,7 +41,7 @@ import Fonts from '../assets/theme/Fonts';
 
 const LHeading = ({text}) => {
   return (
-    <View style={{paddingRight:10}} >
+    <View style={{paddingRight: 10}}>
       <Text style={styles.heading}>{text}</Text>
     </View>
   );
@@ -58,49 +58,23 @@ const Historical = ({navigation}) => {
   console.log('Images=============', image);
 
   return (
-    <>
+    <View style={{backgroundColor: Colors.white}}>
       <ScrollView>
         <View style={styles.topHeader}>
           <BackButton navigation={navigation} />
-          <View style={{marginHorizontal: wp('5%'), height: hp('5%')}}>
+          <View style={styles.topHeading}>
             <LHeading text={'Detalles de permiso de importación'} />
           </View>
         </View>
         <View style={styles.BoldTextParent}>
-          <Text style={[styles.BoxText2]}>Import Permit Number</Text>
-          <Text
-            style={{
-              color: '#666666',
-              fontSize: 25,
-              fontWeight: '500',
-              fontFamily: Fonts.light_300,
-              marginVertical: hp('0.5%'),
-            }}>
-            378
+          <Text style={[styles.BoxText2]}>
+            Número de permiso de importación
           </Text>
+          <Text style={styles.graytext}>378</Text>
           <Text style={[styles.BoxText2]}>Fecha permiso de importacion</Text>
-          <Text
-            style={{
-              color: '#666666',
-              fontSize: 25,
-              fontWeight: '500',
-              fontFamily: Fonts.light_300,
-              marginVertical: hp('0.5%'),
-            }}>
-            Sept 01, 2021
-          </Text>
+          <Text style={styles.graytext}>Sept 01, 2021</Text>
           <Text style={[styles.BoxText2]}>Producto</Text>
-          <Text
-            style={{
-              color: '#666666',
-              fontSize: 25,
-              fontWeight: '500',
-              fontFamily: Fonts.light_300,
-              lineHeight: 30,
-              marginVertical: hp('0.5%'),
-            }}>
-            Vial de opddivo 40mg.4ml
-          </Text>
+          <Text style={styles.graytext}>Vial de opddivo 40mg.4ml</Text>
         </View>
 
         <View style={styles.BoxArea}>
@@ -108,7 +82,7 @@ const Historical = ({navigation}) => {
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.BoxText4}>Estado</Text>
             <TouchableOpacity style={styles.pending}>
-              <Text style={styles.pendingText}>Pending</Text>
+              <Text style={styles.pendingText}>Pendiente</Text>
             </TouchableOpacity>
           </View>
           <Text style={styles.BoxText4}>Comprobante de pago</Text>
@@ -116,8 +90,6 @@ const Historical = ({navigation}) => {
             text={'Seleccione'}
             icon={<Feather name={'share'} size={20} color={'black'} />}
           />
-
-        
         </View>
 
         {/* Comprobante de domicilio */}
@@ -130,10 +102,6 @@ const Historical = ({navigation}) => {
               marginTop: 10,
             }}>
             <Text style={styles.BoxText4}>Permiso de importación</Text>
-            <TouchableOpacity
-              style={[styles.pending, {backgroundColor: '#EC4343'}]}>
-              <Text style={styles.pendingText}>Descargar</Text>
-            </TouchableOpacity>
           </View>
           <Text style={[styles.BoxText4, {marginTop: hp('4%')}]}>
             Identificación oficial: Frente
@@ -146,6 +114,16 @@ const Historical = ({navigation}) => {
           <Text style={[styles.BoxText4, {marginTop: hp('4%')}]}>
             Comprobante de domicilio
           </Text>
+          <View style={styles.subirView}>
+            <View style={styles.subirChildView}>
+              <Feather name={'share'} size={20} color={'black'} />
+              <Text style={styles.subirText}>Subir nuevo</Text>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Feather name={'download'} size={20} color={'black'} />
+              <Text style={styles.subirText}>Subir nuevo</Text>
+            </View>
+          </View>
           <UploadButton
             text={'Seleccione'}
             icon={<Feather name={'share'} size={20} color={'black'} />}
@@ -159,7 +137,8 @@ const Historical = ({navigation}) => {
           />
 
           <Text style={[styles.BoxText4, {marginTop: hp('5%')}]}>RFC</Text>
-          <Text style={[styles.BoxText4, {marginTop: hp('1%')}]}>
+          <Text style={{fontSize:16,fontWeight:'500',lineHeight:19,fontFamily:Fonts.regular}}>61627282223fg</Text>
+          <Text style={[styles.BoxText4, {marginTop: hp('3%')}]}>
             Identificacion oficial testigo 1
           </Text>
           <UploadButton
@@ -177,24 +156,11 @@ const Historical = ({navigation}) => {
 
         {/* Identificacion oficial testigo 1 */}
         <View style={styles.BoxArea}>
-          <View
-            style={{
-              flexDirection: 'row',
-              width: wp('80%'),
-              alignSelf: 'center',
-              justifyContent: 'space-between',
-            }}>
+          <View style={styles.informationVIew}>
             <Text style={styles.BoxText}>Información de cliente</Text>
             <FontAwesome name={'angle-down'} size={20} />
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              width: wp('85%'),
-              alignSelf: 'center',
-              justifyContent: 'flex-start',
-              marginVertical: hp('2%'),
-            }}>
+          <View style={styles.julieImageView}>
             <Image source={require('../assets/julie.png')} />
             <Text
               style={[
@@ -205,141 +171,177 @@ const Historical = ({navigation}) => {
             </Text>
           </View>
 
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Nombre: </Text>
-            <Text style={{textAlign: 'center'}}>Ximena Torres</Text>
+            <Text style={styles.BoxTextViewText}>Ximena Torres</Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>nacimiento: </Text>
-            <Text style={{textAlign: 'center'}}>11/04/1989</Text>
+            <Text style={styles.BoxTextViewText}>11/04/1989</Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Teléfono: </Text>
-            <Text style={{textAlign: 'center'}}>+528181818451 </Text>
+            <Text style={styles.BoxTextViewText}>+528181818451 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Número celular: </Text>
-            <Text style={{textAlign: 'center'}}>+528181818451 </Text>
+            <Text style={styles.BoxTextViewText}>+528181818451 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Correo electronico: </Text>
-            <Text style={{textAlign: 'center'}}>tesy@email.com </Text>
+            <Text style={styles.BoxTextViewText}>tesy@email.com </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>RFC: </Text>
-            <Text style={{textAlign: 'center'}}>test122 </Text>
+            <Text style={styles.BoxTextViewText}>test122 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>CURP: </Text>
-            <Text style={{textAlign: 'center'}}>test12335 </Text>
+            <Text style={styles.BoxTextViewText}>test12335 </Text>
           </View>
         </View>
         <View style={styles.BoxArea}>
-          <View
-            style={{
-              flexDirection: 'row',
-              width: wp('85%'),
-              alignSelf: 'center',
-              justifyContent: 'space-between',
-            }}>
+          <View style={styles.BoxHeading}>
             <Text style={styles.BoxText}>Información de contacto</Text>
             <FontAwesome name={'angle-down'} size={20} />
           </View>
 
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Nombre: </Text>
-            <Text style={{textAlign: 'center'}}>Ximena Torres</Text>
+            <Text style={styles.BoxTextViewText}>Ximena Torres</Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>nacimiento: </Text>
-            <Text style={{textAlign: 'center'}}>11/04/1989</Text>
+            <Text style={styles.BoxTextViewText}>11/04/1989</Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Teléfono: </Text>
-            <Text style={{textAlign: 'center'}}>+528181818451 </Text>
+            <Text style={styles.BoxTextViewText}>+528181818451 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Número celular: </Text>
-            <Text style={{textAlign: 'center'}}>+528181818451 </Text>
+            <Text style={styles.BoxTextViewText}>+528181818451 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Correo electronico: </Text>
-            <Text style={{textAlign: 'center'}}>tesy@email.com </Text>
+            <Text style={styles.BoxTextViewText}>tesy@email.com </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>RFC: </Text>
-            <Text style={{textAlign: 'center'}}>test122 </Text>
+            <Text style={styles.BoxTextViewText}>test122 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>CURP: </Text>
-            <Text style={{textAlign: 'center'}}>test12335 </Text>
+            <Text style={styles.BoxTextViewText}>test12335 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Dirección </Text>
-            {/* <Text style={{textAlign: 'center'}}>test12335  </Text> */}
+            {/* <Text style={styles.BoxTextViewText}>test12335  </Text> */}
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Código Postal : </Text>
-            <Text style={{textAlign: 'center'}}>123456 </Text>
+            <Text style={styles.BoxTextViewText}>123456 </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Ciudad : </Text>
-            <Text style={{textAlign: 'center'}}>Ciudad General Escobedo </Text>
+            <Text style={styles.BoxTextViewText}>Ciudad General Escobedo </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>Estado : </Text>
-            <Text style={{textAlign: 'center'}}> Nuevo Leon </Text>
+            <Text style={styles.BoxTextViewText}> Nuevo Leon </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.BoxTextView}>
             <Text style={styles.BoxText3}>París : </Text>
-            <Text style={{textAlign: 'center'}}> México </Text>
+            <Text style={styles.BoxTextViewText}> México </Text>
           </View>
 
-          <View
-            style={{
-              // backgroundColor: 'red',
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              width: wp('60%'),
-              // alignSelf: 'flex-start',
-              marginVertical: 10,
-            }}>
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '500',
-                color: '#252525',
-                marginRight: 10,
-                fontFamily: Fonts.medium_500,
-              }}>
-              Cuidador
-            </Text>
+          <View style={styles.CuidadorView}>
+            <Text style={styles.checkBoxCuidador}>Cuidador</Text>
             <CheckBox
               // tintColors={ true? '#DFDFF5' : 'green' }
               disabled={false}
               value={toggleCheckBox}
               onValueChange={newValue => setToggleCheckBox(newValue)}
             />
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '500',
-                color: '#252525',
-                marginLeft: 10,
-              }}>
-              No
-            </Text>
+            <Text style={styles.No}>No</Text>
           </View>
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 export default Historical;
 
 const styles = StyleSheet.create({
+  subirText: {
+    fontSize: 16,
+    fontWeight: '300',
+    fontFamily: Fonts.regular,
+    lineHeight: 26,
+    marginLeft: 10,
+    color:'#171C14',
+  },
+  subirChildView: {flexDirection: 'row', justifyContent: 'space-between'},
+  subirView: {
+    width: wp('75%'),
+    flexDirection: 'row',
+    height: hp('6%'),
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  BoxTextViewText: {textAlign: 'center',fontSize:16,fontWeight:'500',lineHeight:19,fontFamily:Fonts.regular},
+  BoxTextView: {flexDirection: 'row', alignItems: 'center'},
+  informationVIew: {
+    flexDirection: 'row',
+    width: wp('80%'),
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+  },
+  julieImageView: {
+    flexDirection: 'row',
+    width: wp('85%'),
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
+    marginVertical: hp('2%'),
+  },
+  CuidadorView: {
+    // backgroundColor: 'red',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: wp('60%'),
+    // alignSelf: 'flex-start',
+    marginVertical: 10,
+  },
+  No: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#252525',
+    marginLeft: 10,
+  },
+  checkBoxCuidador: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#252525',
+    marginRight: 10,
+    fontFamily: Fonts.medium_500,
+  },
+  BoxHeading: {
+    flexDirection: 'row',
+    width: wp('85%'),
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+  },
+  topHeading: {marginHorizontal: wp('5%'), height: hp('5%')},
+  graytext: {
+    color: '#666666',
+    fontSize: 20,
+    fontWeight: '500',
+    fontFamily: Fonts.light_300,
+    lineHeight: 24,
+    marginVertical: hp('0.5%'),
+  },
   pendingText: {
     textAlign: 'center',
     color: Colors.white,
@@ -348,7 +350,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.medium_500,
   },
   pending: {
-    width: wp('25%'),
+    width: wp('27%'),
     height: hp('3.5%'),
     backgroundColor: 'green',
     alignItems: 'center',
@@ -377,10 +379,10 @@ const styles = StyleSheet.create({
   },
   BoxText2: {
     fontSize: 16,
-    fontWeight: '700',
-    fontFamily: 'Montserrat-Bold',
+    fontWeight: '600',
+    fontFamily: Fonts.bold_600,
     color: Colors.blackHeading,
-    lineHeight: 19.5,
+    lineHeight: 21,
     marginVertical: hp('1%'),
     marginLeft: wp('1%'),
   },

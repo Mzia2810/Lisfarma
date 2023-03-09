@@ -46,7 +46,7 @@ const HomePage = () => {
   const [selectedId, setSelectedId] = useState();
 
   return (
-    <>
+    <View style={{backgroundColor:Colors.white,flex:1}}>
       <HeaderCompo />
       <View style={styles.searchBox}>
         <View style={styles.searchBoxChild}>
@@ -64,16 +64,19 @@ const HomePage = () => {
       </View>
 
       <ScrollView>
-        <FlatListCompo data={DATA} />
+        <FlatListCompo  image  data={DATA} />
        
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 export default HomePage;
 
 const styles = StyleSheet.create({
+TextSize:{
+fontSize:40  
+},
   searchBox: {
     width: wp('90%'),
     alignSelf: 'center',

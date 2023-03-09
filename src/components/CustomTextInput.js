@@ -40,7 +40,6 @@ const CustomListProfile = ({
     // >
       <LinearGradient
        start={{ x: 0.3, y: 0.3 }} end={{ x: -1, y: 0 }}
-    
        colors={['#D9DFF5', '#F2F6FF']}
         style={[
           styles.button,
@@ -57,7 +56,7 @@ const CustomListProfile = ({
           value={value}
           style={{
             flexDirection: 'row',
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: '500',
             fontFamily: Fonts.light_300,
             alignItems: 'center',
@@ -65,6 +64,8 @@ const CustomListProfile = ({
             alignContent: 'center',
             color: Colors.blackHeading,
             height: hp('6%'),
+            // borderWidth:1,
+            // borderColor:'black',
           }}></TextInput>
       </LinearGradient>
     // </LinearGradient>
@@ -81,6 +82,8 @@ const styles = StyleSheet.create({
   },
   button: {
     width: wp('90%'),
+    // borderWidth:1,
+    // borderColor:'#D9DFF5',
     // marginHorizontal: wp('5%'),
     // backgroundColor: 'rgba(217, 223, 245, 1)' + 0.7,
     // opacity: 0.5,

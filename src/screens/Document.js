@@ -38,6 +38,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import UploadButton from '../components/UploadButton';
 import Fonts from '../assets/theme/Fonts';
 import LinearGradient from 'react-native-linear-gradient';
+import CustomTextInput from '../components/CustomTextInput';
 
 const Documentos = ({navigation}) => {
   const [updateImage, setUpdateImage] = useState({});
@@ -46,20 +47,29 @@ const Documentos = ({navigation}) => {
   const [toggleCheckBox1, setToggleCheckBox1] = useState(false);
   const [toggleCheckBox2, setToggleCheckBox2] = useState(false);
   const [text, setText] = useState('');
+  const [text1, setText1] = useState('');
 
   console.log('Images=============', image);
 
   return (
-    <>
+    <View style={{backgroundColor:Colors.white,flex:1}}>
       <ScrollView>
         <View style={styles.topHeader}>
           <View>
-
-          <BackButton navigation={navigation} />
+            <BackButton navigation={navigation} />
           </View>
           <View style={{marginHorizontal: wp('5%')}}>
             <LHeading text={'Documentos'} />
           </View>
+        </View>
+
+        <View style={styles.topTextInput}>
+          <CustomTextInput
+            placeholder="*RFC"
+            keyboardType={'default'}
+            onChangeText={num => setText1(num)}
+            value={text1}
+          />
         </View>
 
         <Text style={styles.profileDetail}>
@@ -79,16 +89,7 @@ const Documentos = ({navigation}) => {
           <View style={styles.button}>
             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
               <AntDesign name={'checkcircle'} size={20} color={'#259613'} />
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '300',
-                  lineHeight:21,
-                  fontFamily:Fonts.light_300,
-                  marginHorizontal: wp('2%'),
-                }}>
-                Uploaded avc.png
-              </Text>
+              <Text style={styles.upload}>Uploaded avc.png</Text>
             </View>
             <Image source={require('../assets/del.png')} />
           </View>
@@ -107,7 +108,6 @@ const Documentos = ({navigation}) => {
           <UploadButton
             backgroundColor={'#C6EABF'}
             text={'Uploading 88%'}
-            // icon={<Feather name={'share'} size={20}color={'black'} />}
           />
         </View>
 
@@ -122,7 +122,6 @@ const Documentos = ({navigation}) => {
 
           <Text style={styles.BoxText}>Reverso</Text>
           <UploadButton
-            // backgroundColor={'#C6EABF'}
             text={'Seleccione'}
             icon={<Feather name={'share'} size={20} color={'black'} />}
           />
@@ -139,48 +138,52 @@ const Documentos = ({navigation}) => {
 
           <Text style={styles.BoxText}> </Text>
           <UploadButton
-            // backgroundColor={'#C6EABF'}
             text={'Seleccione'}
             icon={<Feather name={'share'} size={20} color={'black'} />}
           />
         </View>
 
-        <View style={{width: wp('90%'), alignSelf: 'center'}}>
-          <LHeading text={'Complete la siguiente información'} />
-        </View>
+      
 
-        <LinearGradient
-             colors={['#D9DFF5', '#F2F6FF']}
-             start={{x: 0.3, y: 0.5}}
-             end={{x: -1, y: 0}}
-             style={styles.textArea}
-        >
-          <TextInput
-            style={styles.textArea}
-            // textAlignVertical="top"
-            // multiline
-            // numberOfLines={4}
-            placeholder={'Nombre de la institución donde...'}
-            onChangeText={e => setText(e)}
-            value={text}
-          />
-        </LinearGradient>
+       
         <View style={{width: wp('90%'), alignSelf: 'center'}}>
-          <Text style={[styles.BoxText,{lineHeight:36}]}>Aviso de Privacidad:</Text>
-          <Text style={{fontFamily:Fonts.light_300,fontSize:16,fontWeight:'300'}}>Los documentos guardados estarán disponibles cuando solicite un nuevo permiso de importación, su información es confidencial y será tratada como tal.</Text>
+          <Text style={[styles.BoxText, {lineHeight: 36}]}>
+            Aviso de Privacidad:
+          </Text>
+          <Text
+            style={styles.lastText}>
+            Los documentos guardados estarán disponibles cuando solicite un
+            nuevo permiso de importación, su información es confidencial y será
+            tratada como tal.
+          </Text>
         </View>
 
         <View style={{width: wp('80%'), alignSelf: 'center'}}>
           <ButtonCompo text={'Guardar'} />
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 export default Documentos;
 
 const styles = StyleSheet.create({
+  lastText:{
+    fontFamily: Fonts.light_300,
+    fontSize: 16,
+    fontWeight: '300',
+    lineHeight:24,
+  },
+  upload: {
+    fontSize: 16,
+    fontWeight: '300',
+    lineHeight: 21,
+    fontFamily: Fonts.light_300,
+    marginHorizontal: wp('2%'),
+    color:Colors.blackHeading,
+  },
+  topTextInput: {width: wp('90%'), alignSelf: 'center', marginTop: hp('3%')},
   button: {
     width: wp('80%'),
     // marginHorizontal: wp('5%'),
@@ -220,8 +223,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 8,
     paddingHorizontal: 15,
-    fontSize:18,fontWeight:'500',
-    fontFamily:Fonts.light_300,
+    fontSize: 18,
+    fontWeight: '500',
+    fontFamily: Fonts.light_300,
   },
   CheckBoxText: {
     fontSize: 18,
@@ -247,7 +251,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '300',
     lineHeight: 26,
-    fontFamily: Fonts.light_300,
+    fontFamily: Fonts.regular,
     marginTop: hp('2%'),
   },
   update: {

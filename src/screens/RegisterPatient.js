@@ -37,6 +37,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import CustomTextinput from '../components/CustomTextInput';
 import Fonts from '../assets/theme/Fonts';
+import LinearGradient from 'react-native-linear-gradient';
 
 const RegisterPatient = ({navigation}) => {
   const [updateImage, setUpdateImage] = useState({});
@@ -85,7 +86,7 @@ const RegisterPatient = ({navigation}) => {
   console.log(image);
 
   return (
-    <>
+    <View style={{backgroundColor:Colors.white}}>
       <ScrollView>
         <View style={styles.topHeader}>
           <BackButton navigation={navigation} />
@@ -95,8 +96,7 @@ const RegisterPatient = ({navigation}) => {
         </View>
 
         <View style={[styles.ParentProfile]}>
-          <View
-            style={styles.profileArea}>
+          <View style={styles.profileArea}>
             <TouchableOpacity onPress={uploadFromGallery} style={styles.update}>
               <Feather name={'camera'} size={15} color={'black'} />
             </TouchableOpacity>
@@ -200,7 +200,6 @@ const RegisterPatient = ({navigation}) => {
         </View>
         <View style={styles.personalDetailList}>
           <View style={{width: wp('90%')}}>
-           
             <CustomTextinput
               placeholder="CURP*"
               keyboardType={'default'}
@@ -226,21 +225,24 @@ const RegisterPatient = ({navigation}) => {
               }
             />
 
-            <View>
+            <LinearGradient
+              style={styles.textArea2}
+              start={{x: 0.3, y: 0.5}}
+              end={{x: -1, y: 0}}
+              colors={['#D9DFF5', '#F2F6FF']}>
               <Image
                 source={require('../assets/doc1.png')}
                 style={styles.DiagnosticImage}
               />
               <TextInput
                 placeholder="Diagnóstico*"
-                style={styles.textArea2}
                 textAlignVertical="top"
                 multiline
-                numberOfLines={3}
+                numberOfLines={6}
                 onChangeText={e => setText(e)}
                 value={text}
               />
-            </View>
+            </LinearGradient>
           </View>
         </View>
 
@@ -252,7 +254,7 @@ const RegisterPatient = ({navigation}) => {
           <TouchableOpacity
             style={[
               styles.SwitchButton,
-              {backgroundColor: activeSwitch == 'Si' ? '#D9DFF5' : '#F2F6FF'},
+              {backgroundColor: activeSwitch == 'Si' ? '#D9DFF5' : Colors.white},
             ]}
             onPress={() => setActiveSwitch('Si')}>
             <Text style={styles.SwitchButtonText}>Sí</Text>
@@ -260,7 +262,7 @@ const RegisterPatient = ({navigation}) => {
           <TouchableOpacity
             style={[
               styles.SwitchButton,
-              {backgroundColor: activeSwitch == 'No' ? '#D9DFF5' : '#F2F6FF'},
+              {backgroundColor: activeSwitch == 'No' ? '#D9DFF5' : Colors.white   },
             ]}
             onPress={() => setActiveSwitch('No')}>
             <Text style={styles.SwitchButtonText}>No</Text>
@@ -270,38 +272,38 @@ const RegisterPatient = ({navigation}) => {
           <ButtonCompo text={'Guardar'} />
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 export default RegisterPatient;
 
 const styles = StyleSheet.create({
-  buttonView:{width: wp('80%'), alignSelf: 'center'},
-  DiagnosticImage:{
+  buttonView: {width: wp('80%'), alignSelf: 'center'},
+  DiagnosticImage: {
     width: wp('5%'),
     height: hp('3%'),
     position: 'absolute',
     margin: 8,
   },
-  profileArea:{
+  profileArea: {
     marginTop: hp('4%'),
     flexDirection: 'row',
     marginLeft: wp('5%'),
     marginBottom: hp('2%'),
   },
-  textArea2: {
+  textArea2: {marginTop:5,
     paddingHorizontal: 35,
     borderColor: '#D9DFF5',
-    backgroundColor: '#D9DFF5',
-    opacity: 0.5,
+    // backgroundColor: '#D9DFF5',
+    // opacity: 0.5,
     borderWidth: 1,
     width: wp('90%'),
     alignSelf: 'center',
     borderRadius: 5,
-    fontSize:16,
-    fontWeight:'500',
-    fontFamily:Fonts.light_300,
+    fontSize: 16,
+    fontWeight: '500',
+    fontFamily: Fonts.light_300,
   },
   profileImage: {width: 100, height: 100, borderRadius: 100},
   ParentProfile: {
@@ -329,7 +331,7 @@ const styles = StyleSheet.create({
   textArea: {
     padding: 2,
     borderColor: '#D9DFF5',
-    backgroundColor: '#F2F6FF',
+    backgroundColor: Colors.white,
     opacity: 0.5,
     borderWidth: 1,
     width: wp('88%'),
@@ -356,6 +358,7 @@ const styles = StyleSheet.create({
   personalDetailList: {
     width: wp('90%'),
     alignSelf: 'center',
+
   },
   profileDetail: {
     fontWeight: '300',
@@ -401,5 +404,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     flexDirection: 'row',
   },
-  Tienes:{fontSize:18,fontWeight:'400',lineHeight:31,fontFamily:Fonts.light_300}
+  Tienes: {
+    fontSize: 18,
+    fontWeight: '400',
+    lineHeight: 31,
+    fontFamily: Fonts.light_300,
+    color:Colors.blackHeading,
+  },
 });
