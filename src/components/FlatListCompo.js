@@ -20,7 +20,7 @@ import Colors from '../assets/theme/Colors';
 import {useNavigation} from '@react-navigation/native';
 import Fonts from '../assets/theme/Fonts';
 
-const FlatListCompo = ({data, image, style}) => {
+const FlatListCompo = ({data, image, style ,height}) => {
   const navigation = useNavigation();
   return (
     <View
@@ -31,8 +31,8 @@ const FlatListCompo = ({data, image, style}) => {
         
       }}>
       <FlatList
-         vertical={true}
-         style={{ height: 300 }} // set a fixed height
+      vertical={true}
+      style={{height : height ? 300: 490 }}
         data={data}
         renderItem={(item, index) => (
           <TouchableOpacity
