@@ -31,6 +31,8 @@ const FlatListCompo = ({data, image, style}) => {
         
       }}>
       <FlatList
+         vertical={true}
+         style={{ height: 300 }} // set a fixed height
         data={data}
         renderItem={(item, index) => (
           <TouchableOpacity

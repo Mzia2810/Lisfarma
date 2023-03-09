@@ -91,9 +91,9 @@ console.log('Values',index1,index2)
         <DropdownCompo  placeholder={'Seleccionar estado'} />
         </Pressable>
     
-        <ScrollView >
+        <View >
           <FlatListCompo data={DATA} />
-        </ScrollView>
+        </View>
       </View>
     </View>
   );

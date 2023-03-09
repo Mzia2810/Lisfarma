@@ -8,6 +8,7 @@ import {
   Modal,
   Pressable,
   ImageBackground,
+  KeyboardAvoidingView,
 } from 'react-native';
 import React, {useState} from 'react';
 import {
@@ -59,11 +60,17 @@ const Login = () => {
           borderTopRightRadius: 30,
           marginTop: -150,
           height:hp('100%'),
+          flex:1
         }}>
         <View style={styles.personalDetailList}>
           <View style={{width: wp('65%'), alignSelf: 'center'}}>
-            <Image source={require('../assets/lisfarmalogo.png')} />
+            <Image style={{marginHorizontal:10}} source={require('../assets/lisfarmalogo.png')} />
           </View>
+          <KeyboardAvoidingView
+           behavior='padding'
+            // style={{flex:1}}
+          >
+
           <Text
             style={{
               fontSize: 26,
@@ -92,6 +99,8 @@ const Login = () => {
               value={value3}
             />
           </View>
+          </KeyboardAvoidingView>
+
         </View>
 
         <View
