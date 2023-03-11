@@ -39,7 +39,7 @@ const CustomListProfile = ({
     // // style={{flex: 1}}
     // >
       <LinearGradient
-       start={{ x: 0.3, y: 0.3 }} end={{ x: -1, y: 0 }}
+       start={{ x: 0, y: 0 }} end={{ x: 0, y: 0 }}
        colors={['#D9DFF5', '#F2F6FF']}
         style={[
           styles.button,
@@ -57,8 +57,9 @@ const CustomListProfile = ({
           style={{
             flexDirection: 'row',
             fontSize: 18,
+            lineHeight:21.9,
             fontWeight: '500',
-            fontFamily: Fonts.light_300,
+            fontFamily:Fonts.medium_500,
             alignItems: 'center',
             width: wp('70%'),
             alignContent: 'center',
@@ -82,8 +83,8 @@ const styles = StyleSheet.create({
   },
   button: {
     width: wp('90%'),
-    // borderWidth:1,
-    // borderColor:'#D9DFF5',
+    borderWidth:1,
+    borderColor:'#D9DFF5',
     // marginHorizontal: wp('5%'),
     // backgroundColor: 'rgba(217, 223, 245, 1)' + 0.7,
     // opacity: 0.5,

@@ -129,7 +129,7 @@ const PersonalInformation = ({navigation}) => {
         </Text>
 
         <View style={styles.personalDetailList}>
-          <LHeading text={'Personal Details'} />
+          <LHeading text={'Datos personales'} />
           <View style={{marginTop: hp('2%'), width: wp('90%')}}>
             <CustomTextInput
              placeholder="Nombre*"
@@ -163,7 +163,7 @@ const PersonalInformation = ({navigation}) => {
              icon={
                <Image
                  source={require('../assets/down.png')}
-                 style={{width: wp('5%'), height: hp('2.5%')}}
+                 style={{width: wp('4.5%'), height: hp('2.3%')}}
                />
              }
             />
@@ -173,10 +173,10 @@ const PersonalInformation = ({navigation}) => {
              onChangeText={num => setValue3(num)}
              value={value3}
              icon={
-               <Image
-                 source={require('../assets/phone.png')}
-                 style={{width: wp('4%'), height: hp('3.2%')}}
-               />
+              <Image
+                   source={require('../assets/Group4.png')}
+                   style={{width: wp('5%'), height: hp('3.3%')}}
+                 />
              }
             />
             <CustomTextInput
@@ -185,20 +185,20 @@ const PersonalInformation = ({navigation}) => {
              onChangeText={num => setValue4(num)}
              value={value4}
              icon={
-               <Image
-                 source={require('../assets/tele.png')}
-                 style={{width: wp('5%'), height: hp('3%')}}
-               />
+              <Image
+              source={require('../assets/Group3.png')}
+              style={{width: wp('5.5%'), height: hp('3%')}}
+            />
              }
             />
            
           </View>
         </View>
         <View style={styles.personalDetailList}>
-          <LHeading text={'Institución Details'} />
+          <LHeading text={'Datos instituciónales'} />
           <View style={{marginTop: hp('2%'), width: wp('90%')}}>
             <CustomTextInput
-               placeholder="Nombre de la institución donde..."
+               placeholder="Nombre de la institución"
                keyboardType={'default'}
                onChangeText={num => setValue5(num)}
                value={value5}
@@ -210,7 +210,7 @@ const PersonalInformation = ({navigation}) => {
                }
             />
             <CustomTextInput
-               placeholder="Dirección de la Institución*"
+               placeholder="Dirección de la Insti*"
                keyboardType={'default'}
                onChangeText={num => setValue6(num)}
                value={value6}
@@ -251,22 +251,24 @@ const PersonalInformation = ({navigation}) => {
                onChangeText={num => setValue9(num)}
                value={value9}
                icon={
-                 <Image
-                   source={require('../assets/doc5.png')}
-                   style={{width: wp('5%'), height: hp('3%')}}
+                <Image
+                tintColor={'black'}
+                   source={require('../assets/Group.png')}
+                   style={{width: wp('5%'), height: hp('3.5%')}}
                  />
                }
                isIconLeft
             />
             <CustomTextInput
-               placeholder="Cedula profesional de especiali..."
+               placeholder="Cedula profesional de ..."
                keyboardType={'default'}
                onChangeText={num => setValue10(num)}
                value={value10}
                icon={
                  <Image
-                   source={require('../assets/doc5.png')}
-                   style={{width: wp('5%'), height: hp('3%')}}
+                 tintColor={'black'}
+                   source={require('../assets/Group.png')}
+                   style={{width: wp('5%'), height: hp('3.5%')}}
                  />
                }
             />
@@ -300,8 +302,8 @@ const PersonalInformation = ({navigation}) => {
         </View>
 
         <LinearGradient
-        style={styles.textArea}
-         start={{ x: 0.3, y: 0.5 }} end={{ x: -1, y: 0 }}
+        style={styles.textArea2}
+         start={{ x: 0, y: 0 }} end={{ x: 0, y: 0 }}
     
          colors={['#D9DFF5', '#F2F6FF']}
         >
@@ -326,6 +328,15 @@ export default PersonalInformation;
 
 const styles = StyleSheet.create({
   textArea: {
+    // borderColor: '#D9DFF5',
+    // backgroundColor: '#D9DFF5',
+    // opacity:0.5,
+    // borderWidth: 1,
+    width: wp('70%'),
+    alignSelf: 'center',
+    borderRadius: 5,
+  },
+  textArea2: {
     borderColor: '#D9DFF5',
     // backgroundColor: '#D9DFF5',
     // opacity:0.5,
@@ -360,6 +371,7 @@ const styles = StyleSheet.create({
    fontFamily:Fonts.light_300,
    lineHeight:29,
     marginTop: 10,
+    color:Colors.blackHeading2,
     // fontFamily:'Montserrat-Regular'
   },
   update: {

@@ -258,8 +258,8 @@ const Historical = ({navigation}) => {
           <View style={styles.CuidadorView}>
             <Text style={styles.checkBoxCuidador}>Cuidador</Text>
             <CheckBox
-              // tintColors={ true? '#DFDFF5' : 'green' }
-              disabled={false}
+               tintColors={{true: Colors.lightBlueSky, false: Colors.lightBlueSky}}
+               disabled={false}
               value={toggleCheckBox}
               onValueChange={newValue => setToggleCheckBox(newValue)}
             />

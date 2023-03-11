@@ -17,7 +17,7 @@ const CustomCheckBox = ({
   return (
     <View style={styles.CheckBoxArea}>
       <CheckBox
-        tintColors={{true: Colors.lightBlueSky, false: 'gray'}}
+        tintColors={{true: Colors.lightBlueSky, false: Colors.lightBlueSky}}
         disabled={false}
         value={toggleCheckBox}
         onValueChange={newValue => setToggleCheckBox(newValue)}

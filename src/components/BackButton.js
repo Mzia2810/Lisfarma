@@ -30,7 +30,7 @@ const BackButton = ({navigation}) => {
          colors={['#D9DFF5', '#F2F6FF']}
          >
 
-      <AntDesign name={'left'} size={13} color={'black'} />
+      <AntDesign name={'left'} size={15} color={'black'} />
         </LinearGradient>
     </TouchableOpacity>
   );

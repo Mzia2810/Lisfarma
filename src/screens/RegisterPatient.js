@@ -155,8 +155,9 @@ const RegisterPatient = ({navigation}) => {
               value={value3}
               icon={
                 <Image
-                  source={require('../assets/phone.png')}
-                  style={{width: wp('5%'), height: hp('4%')}}
+                tintColor='black'
+                  source={require('../assets/Group4.png')}
+                  style={{width: wp('6%'), height: hp('4%')}}
                 />
               }
             />
@@ -207,7 +208,8 @@ const RegisterPatient = ({navigation}) => {
               value={value5}
               icon={
                 <Image
-                  source={require('../assets/doc.png')}
+                tintColor='black'
+                  source={require('../assets/Group5.png')}
                   style={{width: wp('5%'), height: hp('3%')}}
                 />
               }
@@ -219,7 +221,8 @@ const RegisterPatient = ({navigation}) => {
               value={value5}
               icon={
                 <Image
-                  source={require('../assets/doc.png')}
+                tintColor='black'
+                  source={require('../assets/Group5.png')}
                   style={{width: wp('5%'), height: hp('3%')}}
                 />
               }
@@ -227,11 +230,12 @@ const RegisterPatient = ({navigation}) => {
 
             <LinearGradient
               style={styles.textArea2}
-              start={{x: 0.3, y: 0.5}}
-              end={{x: -1, y: 0}}
+              start={{x: 0, y: 0}}
+              end={{x: 0, y: 0}}
               colors={['#D9DFF5', '#F2F6FF']}>
               <Image
-                source={require('../assets/doc1.png')}
+                tintColor='black'
+                source={require('../assets/Group.png')}
                 style={styles.DiagnosticImage}
               />
               <TextInput
@@ -282,7 +286,7 @@ const styles = StyleSheet.create({
   buttonView: {width: wp('80%'), alignSelf: 'center'},
   DiagnosticImage: {
     width: wp('5%'),
-    height: hp('3%'),
+    height: hp('3.5%'),
     position: 'absolute',
     margin: 8,
   },

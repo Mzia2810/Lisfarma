@@ -15,7 +15,8 @@ const CustomTabBar = props => (
   <BottomTabBar
     {...props}
     style={{
-      height: 57,
+      height: 60,
+    
     
     }}
   />
@@ -23,6 +24,7 @@ const CustomTabBar = props => (
 
 const BottomTabScreen = () => {
   return (
+    <>
     <BottomTab.Navigator
       tabBar={CustomTabBar}
       initialRouteName="Mis pacientes"
@@ -36,6 +38,7 @@ const BottomTabScreen = () => {
           backgroundColor:Colors.white,
           borderTopStartRadius:30,
           borderTopEndRadius:30,
+          
           
         }
     
@@ -72,6 +75,7 @@ const BottomTabScreen = () => {
       }}
       name="Ajustes" component={ProfileSetting} />
     </BottomTab.Navigator>
+      </>
   );
 };
 

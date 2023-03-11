@@ -40,8 +40,8 @@ const CustomTextinput = ({
 }) => {
   return (
     <LinearGradient
-      start={{x: 0.3, y: 0.3}}
-      end={{x: -1, y: 0}}
+      start={{x: 0, y: 0}}
+      end={{x: 0, y: 0}}
       colors={['#D9DFF5', '#F2F6FF']}
       style={styles.buttonInputText}>
       <TextInput
@@ -52,13 +52,15 @@ const CustomTextinput = ({
         style={{
           paddingLeft: 20,
           flexDirection: 'row',
-          fontSize: 16,
+          fontSize: 18,
+          lineHeight:21,
           fontWeight: '500',
+          fontFamily:Fonts.medium_500,
           alignItems: 'center',
           width: wp('80%'),
           alignContent: 'center',
           color: Colors.blackHeading,
-          height: hp('7%'),
+          height: hp('6.5%'),
           // paddingVertical:17,   borderWidth:1,
            
         }}></TextInput>

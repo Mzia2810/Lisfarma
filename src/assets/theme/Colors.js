@@ -8,6 +8,7 @@ export default {
     placeholderBackground: "#D9DFF5",
     textColor: "#434040",
     blackHeading:'#000000',
+    blackHeading2:'#171C14',
     lightGreen:'#C6EABF',
     lightBlueSky: '#D9DFF5',
     skyblue:'#F2F6FF',
